@@ -1,0 +1,12 @@
+Contriaintes
+
+venv
+
+requirements.txt
+
+structurer le projet
+
+pas de blueprint
+
+il faut séparer les responsabilités (models, views,..)
+

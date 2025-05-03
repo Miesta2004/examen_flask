@@ -1,0 +1,43 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto p-6 text-center">
+    <!-- Icône animée -->
+    <div class="mb-8 transition-all duration-500 transform hover:scale-110">
+        {% if feedback %}
+        <div class="text-green-500 text-9xl animate-bounce">✓</div>
+        {% else %}
+        <div class="text-red-500 text-9xl animate-pulse">✗</div>
+        {% endif %}
+    </div>
+
+    <!-- Message de feedback -->
+    <h2 class="text-3xl font-bold mb-4">
+        {% if feedback %}
+        Bonne réponse !
+        {% else %}
+        Réponse incorrecte
+        {% endif %}
+    </h2>
+
+    <!-- Score actuel -->
+    <div class="text-xl mb-8">
+        <span class="font-semibold">Score actuel :</span>
+        <span class="text-blue-600">{{ score }}</span> points
+    </div>
+
+    <!-- Bouton de continuation -->
+    <a href="{{ url_for('quiz') }}"
+       class="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg
+              hover:bg-blue-600 transition-colors duration-300
+              transform hover:scale-105 shadow-lg">
+        Question suivante →
+    </a>
+
+    <!-- Barre de progression décorative -->
+    <div class="mt-12 w-full bg-gray-200 rounded-full h-2.5">
+        <div class="bg-blue-600 h-2.5 rounded-full transition-all duration-500"
+             style="width: {{ ((progress - 1)/total) * 100 }}%"></div>
+    </div>
+</div>
+{% endblock %}
