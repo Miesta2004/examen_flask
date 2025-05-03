@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}Quiz{% endblock %}</title>
+	<script defer src="{{ url_for('static', filename='js/timer.js') }}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+	<link rel="stylesheet" href="">
+</head>
+<body class="mx-auto">
+<div class="min-h-screen flex flex-col">
+	{% include "partials/navbar.html" %}
+</div>
+<div class="w-full max-w-xl p-6 bg-white rounded shadow">
+	{% block content %}{% endblock %}
+</div>
+{% include "partials/footer.html" %}
+</body>
+</html>
